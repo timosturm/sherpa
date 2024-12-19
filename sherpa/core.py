@@ -155,8 +155,7 @@ class Study(object):
 
         # Use ordered dict to maintain order
         row = collections.OrderedDict([(key, [value]) for key, value in row])
-        self.results = self.results.append(pandas.DataFrame.from_dict(row),
-                                           ignore_index=True)
+        self.results = pandas.concat([self.results, pandas.DataFrame.from_dict(row)], ignore_index=True) 
 
         if self.dashboard_process:
             self._results_channel.df = self.results
@@ -194,7 +193,7 @@ class Study(object):
         # Set status and append
         best_row['Status'] = status
         best_row['Iteration'] = rows['Iteration'].max()
-        self.results = self.results.append(best_row, ignore_index=True)
+        self.results = pandas.concat([self.results, best_row], ignore_index=True) 
 
         if self.dashboard_process:
             self._results_channel.df = self.results
