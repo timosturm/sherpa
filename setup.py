@@ -26,7 +26,7 @@ EMAIL = 'lhertel@uci.edu'
 AUTHOR = 'Lars Hertel, Peter Sadowski, and Julian Collado'
 
 REQUIRED = [
-    'pandas>=0.20.3',
+    'pandas>=2.0.0',
     'pymongo>=3.5.1',
     'numpy>=1.8.2',
     'scipy>=1.0.0,<=1.4.1',
